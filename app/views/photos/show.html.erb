@@ -3,6 +3,7 @@
 <div class="row">
   <div class="col-xs-9">
     <%= image_tag(@photo.file_url, :width => "100%") if @photo.file.present? %>
+    <%= image_tag('http://res.cloudinary.com/hbp1mcgsv/image/upload/v1490105597/no-image_g3dnks.jpg', :width => "100%") if @photo.file.present %>
   </div>
 
   <div class="col-xs-3">

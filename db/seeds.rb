@@ -15,9 +15,15 @@ seed_photos = [
     ['Money','Work your life to get it..'],
     ['An apple','just a single apple'],
     ['Brown coffee','Taste it'],
+    ['Small person','Where do we go?'],
+    ['Soccer','Soccer of football?'],
+    ['Live','Live your life'],
+    ['Do not look back','What are you looking at?'],
+    ['Formula 1','Formula gallery'],
+    ['Automobile','An auto and a mobile'],
     ['Helicopter','...an aircraft whose lift is derived from the aerodynamic forces acting on one or more powered rotors turning about substantially vertical axes']
     ]
 
 seed_photos.each do |title,description|
-    Photos.create(title: title,description:description)
+    Photo.create(title: title,description:description)
 end

@@ -23,7 +23,7 @@
 
   <div class="form-group">
     <%= f.label :file %>
-    <%= f.file_field :file,onchange: "validateFiles(this);",data: { max_file_size: 5.megabytes }, class:'form-control', dragdrop: true,required: true %>
+    <%= f.file_field :file,onchange: "validateFiles(this);",data: { max_file_size: 5.megabytes }, class:'form-control', dragdrop: true %>
   </div>
 
   <div class="actions">

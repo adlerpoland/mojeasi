@@ -13,8 +13,8 @@ Admin(login: admin@admin.pl) ma możliwość zarządzania wszystkimi zdjęciami.
 
 Devise - autoryzacja i autentykacja użytkowników
 
-Carrierwave - upload plików tj. zdjęć
+Carrierwave - upload plików tj. zdjęć na hosting Cloudinary
 
-Cloudinary - ustawienie uploadu plików na hosting clodinary.com na potrzeby heroku (współpracuje z Carrierwave)
+Cloudinary - hosting plikow clodinary.com na potrzeby heroku (współpracuje z Carrierwave)
 
 Link do heroku: https://salty-waters-65995.herokuapp.com

@@ -1,10 +1,29 @@
 class PhotosController < ApplicationController
-  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_photo, only: [:show, :edit, :update, :destroy, :like, :unlike]
 
   # GET /photos
   # GET /photos.json
+  def like
+    @like = @photo.likes.build(user_id: current_user.id)
+    if @like.save
+      flash[:success] = "You have liked this photo!"
+      redirect_to @photo
+    else
+      flash[:alert] = "You have already liked this photo!"
+      redirect_to @photo
+    end
+  end
+
+  def unlike
+    @photo.likes.where(user_id: current_user.id).delete_all
+    respond_to do |format|
+      format.html { redirect_to @photo, :flash => { :notice => 'You have successfully unliked this photo.' } }
+    end
+  end
+  # GET /photos
+  # GET /photos.json
   def index
-    @photos = Photo.all
+    @photos = Photo.where(["photos.description LIKE ?", "%#{params[:search]}%"])
   end
 
   # GET /photos/1

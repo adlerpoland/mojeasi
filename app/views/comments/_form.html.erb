@@ -1,0 +1,8 @@
+<%= form_for([@photo, @photo.comments.build]) do |f| %>
+
+  <div class="form-inline">
+    <%= f.text_field :content,:size=>"60", class: "form-control", placeholder: "Add Your comment...", autofocus: true %>
+    <%= f.submit class: "btn btn-primary btn-lg round btn-sm" %>
+  </div>
+
+<% end %>

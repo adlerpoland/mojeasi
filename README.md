@@ -1,5 +1,6 @@
 # Architektura serwisów internetowych 2017
 Projekt zespołowy
+
 Patryk Adler
 Radosław Gołuński
 Tomek Cabaj

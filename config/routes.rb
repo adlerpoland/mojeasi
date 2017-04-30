@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   get 'pages/info'
 
   resources :photos do
+      member do
+      post '/like' => 'photos#like'
+      delete '/unlike' => 'photos#unlike'
+      end
+    end
+  resources :photos do
       resources :comments
   end
   root :to => redirect('/photos')

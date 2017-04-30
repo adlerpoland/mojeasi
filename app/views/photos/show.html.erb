@@ -13,11 +13,34 @@
     <p><b>Title: </b><%= @photo.title%></p>
     <p><b>Description: </b><%= @photo.description %></p>
     <p><b>Author: </b><%= @photo.user.email %></p>
+    <p><%= pluralize(@photo.likes.count, 'like') %></p>
     <p>
       <%= link_to 'Edit', edit_photo_path(@photo) %> |
       <%= link_to 'Delete', @photo, confirm: 'Are you sure?', method: :delete %> |
       <%= link_to 'Back', photos_path %>
     </p>
   </div>
+  <div class="btn-group pull-right">
+              <% if current_user.email != @photo.user.email %>
+                  <% if @photo.likes.exists?(user_id: current_user.id) %>
+                      <%= link_to unlike_photo_path(@photo), method: :delete do %>
+                          <button class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                            Unlike
+                          </button>
+                      <% end %>
+                  
+                  <% else %>
+                      <%= link_to like_photo_path(@photo), method: :post do %>
+                          <button class="btn btn-success">
+                            <span class="glyphicon glyphicon-heart"></span>
+                            I like it!
+                          </button>
+                      <% end %>
+                  <% end %>
+              <% end %>
+
+            </div>
 </div>
+
   <%= render "comments/comment" %>

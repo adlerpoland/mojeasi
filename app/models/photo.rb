@@ -6,4 +6,6 @@ class Photo < ApplicationRecord
     belongs_to :user
     delegate :email, :to => :user, :prefix => true
     validates :title, length: { minimum: 5 }
+    validates :title, length: { maximum: 30 }
+    validates :description, length: { maximum: 200 }
 end

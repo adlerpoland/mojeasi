@@ -10,37 +10,56 @@
   </div>
 
   <div class="col-xs-3">
-    <p><b>Title: </b><%= @photo.title%></p>
-    <p><b>Description: </b><%= @photo.description %></p>
-    <p><b>Author: </b><%= @photo.user.email %></p>
-    <p><%= pluralize(@photo.likes.count, 'like') %></p>
+    <div class="photo_text">
+        <p><b>Title: </b><%= @photo.title%></p>
+        <p><b>Description: </b><%= @photo.description %></p>
+        <p><b>Author: </b><%= @photo.user.email %></p>
+    </div>
     <p>
-      <%= link_to 'Edit', edit_photo_path(@photo) %> |
-      <%= link_to 'Delete', @photo, confirm: 'Are you sure?', method: :delete %> |
-      <%= link_to 'Back', photos_path %>
+        <% if current_user %>
+                <% if current_user.email != @photo.user.email %>
+                    <% if @photo.likes.exists?(user_id: current_user.id) %>
+                        <%= link_to unlike_photo_path(@photo), method: :delete do %>
+                            <button class="btn btn-danger">
+                                <span class="glyphicon glyphicon-heart"></span>
+                                <%= pluralize(@photo.likes.count, 'like') %>
+                            </button>
+                        <% end %>
+
+                    <% else %>
+                        <%= link_to like_photo_path(@photo), method: :post do %>
+                            <button class="btn btn-success">
+                                <span class="glyphicon glyphicon-heart"></span>
+                                <%= pluralize(@photo.likes.count, 'like') %>
+                            </button>
+                        <% end %>
+                    <% end %>
+                <% else %>
+                        <span class="badge"><span class="glyphicon glyphicon-heart"></span>
+                            <%= pluralize(@photo.likes.count, 'like') %>
+                        </span>
+                <% end %>
+            <% else %>
+                <span class="badge"><span class="glyphicon glyphicon-heart"></span>
+                    <%= pluralize(@photo.likes.count, 'like') %>
+                </span>
+          <% end %>
+      </p>
+
+
+
+    <p>
+        <button class="btn btn-warning">
+          <%= link_to 'Edit', edit_photo_path(@photo) %>
+        </button>
+        <button class="btn btn-danger">
+            <%= link_to 'Delete', @photo, confirm: 'Are you sure?', method: :delete %>
+        </button>
+        <button class="btn btn-info">
+            <%= link_to 'Back', photos_path %>
+        </button>
     </p>
   </div>
-  <div class="btn-group pull-right">
-              <% if current_user.email != @photo.user.email %>
-                  <% if @photo.likes.exists?(user_id: current_user.id) %>
-                      <%= link_to unlike_photo_path(@photo), method: :delete do %>
-                          <button class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span>
-                            Unlike
-                          </button>
-                      <% end %>
-                  
-                  <% else %>
-                      <%= link_to like_photo_path(@photo), method: :post do %>
-                          <button class="btn btn-success">
-                            <span class="glyphicon glyphicon-heart"></span>
-                            I like it!
-                          </button>
-                      <% end %>
-                  <% end %>
-              <% end %>
-
-            </div>
 </div>
 
   <%= render "comments/comment" %>

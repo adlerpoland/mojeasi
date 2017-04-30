@@ -13,7 +13,7 @@ Admin(login: admin@admin.pl) ma możliwość zarządzania wszystkimi zdjęciami.
 
 | Wersja Ruby   | Wersja Rails  |                Baza danych                 | Framework |           Dodatkowe gemy           |
 | ------------- |:-------------:|:-------------------------------------------|:---------:|:----------------------------------:|
-|      2.4.0    | 5.0.2         | PostgreSQL - Heroku                         | Bootstrap | devise, carrierwave, cloudinary |
+|      2.4.0    | 5.0.2         | PostgreSQL - Heroku                         | Bootstrap | devise, carrierwave, cloudinary, will_paginate |
 
 Devise - autoryzacja i autentykacja użytkowników
 

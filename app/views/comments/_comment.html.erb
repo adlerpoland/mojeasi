@@ -1,12 +1,14 @@
 <h4>This post has <%= pluralize(@comments.count, "comment") %>.</h4>
 
-<% @comments = @comments.paginate(:page => params[:page], :per_page => 5) %>
+
 
   <div class="panel panel-default">
     <div class="panel-body">
+    <% @comments = @comments.paginate(:page => params[:page], :per_page => 5) %>
       <% @comments.each do |comment| %>
         <div>
-          <b><%= comment.user.email %></b>
+          <b><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></b>
+          <b><%= comment.user.email %><%= ':' %></b>
           <%= comment.content %>
           <% if current_user == comment.user %>
               <%= link_to "Edit", edit_photo_comment_path(comment.photo, comment), :class => "btn btn-xs" %>
@@ -16,12 +18,9 @@
           <% end %>
         </div>
       <% end %>
-    </div>
-    <div class="panel-footer">
-      <div class="row">
-        <%= render 'comments/form' %>
-      </div>
+      <%= will_paginate @comments %>
+        <div class="row">
+          <%= render 'comments/form' %>
+        </div>
     </div>
   </div>
-
-<%= will_paginate @comments %>

@@ -11,7 +11,12 @@ class CommentsController < ApplicationController
       if @comment.save
         redirect_to photo_path(@photo)
       else
-        render 'new'
+          if @comment.content.length < 1
+              flash[:notice] = "You cannot send an empty message!"
+              redirect_to @photo
+          else
+              render 'new'
+          end
       end
   end
 

@@ -5,14 +5,41 @@
     <% group.compact.each do |photo| %>
       <div class="col-xs-4">
         <% if photo.file.present? %>
-            <%= image_tag photo.file_url, :width => '100%' if photo.file.present?%>
+            <%= link_to image_tag(photo.file_url, :width => '100%'), photo%>
         <% else %>
-            <%= image_tag 'http://res.cloudinary.com/hbp1mcgsv/image/upload/v1490105597/no-image_g3dnks.jpg', :width => '60%'%>
+            <%= link_to image_tag('http://res.cloudinary.com/hbp1mcgsv/image/upload/v1490105597/no-image_g3dnks.jpg', :width => '60%'), photo%>
         <% end %>
+        <div class="likes">
+            <% if current_user %>
+                    <% if current_user.email != photo.user.email %>
+                        <% if photo.likes.exists?(user_id: current_user.id) %>
+                            <%= link_to unlike_photo_path(photo), method: :delete do %>
+                                <button class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-heart"></span>
+                                    <%= pluralize(photo.likes.count, 'like') %>
+                                </button>
+                            <% end %>
+                        <% else %>
+                            <%= link_to like_photo_path(photo), method: :post do %>
+                                <button class="btn btn-success">
+                                    <span class="glyphicon glyphicon-heart"></span>
+                                    <%= pluralize(photo.likes.count, 'like') %>
+                                </button>
+                            <% end %>
+                        <% end %>
+                    <% else %>
+                                <span class="badge"><span class="glyphicon glyphicon-heart"></span>
+                                    <%= pluralize(photo.likes.count, 'like') %>
+                                </span>
+                    <% end %>
+                <% else %>
+                    <span class="badge"><span class="glyphicon glyphicon-heart"></span>
+                        <%= pluralize(photo.likes.count, 'like') %>
+                    </span>
+              <% end %>
+
+        </div>
         <h4><%= link_to photo.title, photo %></h4>
-        <span class="badge"><span class="glyphicon glyphicon-heart"></span>
-        <%= pluralize(photo.likes.count, 'like') %>
-        </span>
         <%-#<%= photo.description %>
       </div>
     <% end %>

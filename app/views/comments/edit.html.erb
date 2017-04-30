@@ -2,7 +2,7 @@
 
           <h2>Edit your comment: </h2>
 
-            <%= f.text_field :content,:size=>"60", class: "form-control", placeholder: "Add Your comment...", autofocus: true %>
+            <%= f.text_field :content,:size=>"60", class: "form-control", placeholder: "Add Your comment...", autofocus: true, :minlength=>"3", :maxlength=>"200" %>
             <%= f.submit class: "btn btn-primary btn-lg round btn-sm" %>
 
 <% end %>

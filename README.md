@@ -23,4 +23,4 @@ Cloudinary - hosting plikow clodinary.com na potrzeby heroku (współpracuje z C
 
 Will_paginate - gem dzieli komentarze na strony. Po 5 komentarzy na jednej.
 
-Link do heroku: https://salty-waters-65995.herokuapp.com
+Link do heroku: https://protected-ocean-44249.herokuapp.com

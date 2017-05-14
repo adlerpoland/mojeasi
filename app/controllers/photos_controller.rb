@@ -41,6 +41,11 @@ class PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
+      if current_user
+          if current_user.email == "admin@admin.pl"
+              current_user.admin = true
+          end
+      end
       if @photo.user != current_user && current_user.admin == false
           respond_to do |format|
               format.html { redirect_to @photo, notice: "Sorry, you're not allowed to do that!" }
@@ -69,6 +74,11 @@ class PhotosController < ApplicationController
   # PATCH/PUT /photos/1
   # PATCH/PUT /photos/1.json
   def update
+      if current_user
+          if current_user.email == "admin@admin.pl"
+              current_user.admin = true
+          end
+      end
       if @photo.user == current_user || current_user.admin?
         respond_to do |format|
           if @photo.update(photo_params)
@@ -85,6 +95,11 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
+      if current_user
+          if current_user.email == "admin@admin.pl"
+              current_user.admin = true
+          end
+      end
     if @photo.user == current_user || current_user.admin?
         @photo.destroy
         respond_to do |format|

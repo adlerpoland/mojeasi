@@ -1,19 +1,22 @@
 ---
 development:
-  cloud_name: hbp1mcgsv
-  api_key: '329489874265454'
-  api_secret: G1I_Apgdfqj3R5TeDXeWKlGjwEY
+  cloud_name: dcz9dsjdw
+  api_key: '848918178725724'
+  api_secret: agmzs10wRTuR6RZvk1vyTAFCxow
   enhance_image_tag: true
   static_image_support: false
+  secure: true
 production:
-  cloud_name: hbp1mcgsv
-  api_key: '329489874265454'
-  api_secret: G1I_Apgdfqj3R5TeDXeWKlGjwEY
+  cloud_name: dcz9dsjdw
+  api_key: '848918178725724'
+  api_secret: agmzs10wRTuR6RZvk1vyTAFCxow
   enhance_image_tag: true
   static_image_support: true
+  secure: true
 test:
-  cloud_name: hbp1mcgsv
-  api_key: '329489874265454'
-  api_secret: G1I_Apgdfqj3R5TeDXeWKlGjwEY
+  cloud_name: dcz9dsjdw
+  api_key: '848918178725724'
+  api_secret: agmzs10wRTuR6RZvk1vyTAFCxow
   enhance_image_tag: true
   static_image_support: false
+  secure: true

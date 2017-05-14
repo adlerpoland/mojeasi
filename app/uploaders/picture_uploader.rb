@@ -25,9 +25,8 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
-  # def scale(width, height)
-  #   # do something
-  # end
+  process :resize_to_fit => [850, 600]
+  cloudinary_transformation :quality => 70
 
   # Create different versions of your uploaded files:
   # version :thumb do

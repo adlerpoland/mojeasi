@@ -2,21 +2,21 @@
 
 <div class="row">
   <div class="col-xs-9">
-    <script>
-      $("#zoom_03").elevateZoom({
-        zoomType: "lens",
-        scrollZoom: "True",
-        tint: "True",
-        tintColour:'#F90', 
-        tintOpacity: 0.5,
-        responsive: "False"
-      });
-    </script>
     <% if @photo.file.present? %>
         <%= image_tag(@photo.file_url, :width => "80%", :id => "zoom_03") if @photo.file.present? %>
     <% else %>
         <%= image_tag('https://res.cloudinary.com/hbp1mcgsv/image/upload/v1490105597/no-image_g3dnks.jpg', :width => "25%")%>
     <% end %>
+    <script>
+      $("#zoom_03").elevateZoom({
+        zoomType: "lens",
+        scrollZoom: "True",
+        tint: "True",
+        tintColour:'#000', 
+        tintOpacity: 0.5,
+        responsive: "False"
+      });
+    </script>
   </div>
 
   <div class="col-xs-3">

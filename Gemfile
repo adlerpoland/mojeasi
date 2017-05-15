@@ -12,6 +12,7 @@ gem 'rails', '~> 5.0.2'
 gem 'carrierwave'
 gem 'devise'
 gem 'cloudinary'
+gem 'elevatezoom-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

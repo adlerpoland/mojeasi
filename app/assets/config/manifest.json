@@ -1,0 +1,8 @@
+{
+  "short_name": "Gallery",
+  "name": "Photo Gallery",
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#ffffff",
+  "Theme_color": "#9966cc",
+  "display": "standalone"
+}

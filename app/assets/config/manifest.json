@@ -7,7 +7,7 @@
     "src":"images/icon192x192.png",
     "sizes": "192x192",
     "type": "image/png"
-  }
+  }]
   "background_color": "#ffffff",
   "theme_color": "#9966cc",
   "display": "standalone"

@@ -30,6 +30,8 @@ Tomek Cabaj
 
 4. Cloudinary - hosting plikow clodinary.com oraz obróbka zdjęć tj. zmiana rozmaru i wagi plików na potrzeby heroku (gem współpracuje z Carrierwave)
 
+5. ElevateZoom - dynamiczny zoom dla zdjęć w galerii
+
 ### Lighthouse wyniki przed i po optymalizacji:
 
 Przed:

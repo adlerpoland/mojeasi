@@ -1,18 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <script>
-  $("#zoom_03").elevateZoom({
+  /*$("#zoom_03").elevateZoom({
     zoomType: "lens",
     scrollZoom: "True",
     lensColour: "#F0",
     lensOpacity: 0.5
-  });
+  });*/
+  $("#zoom_01").elevateZoom();
 </script>
 
 <div class="row">
   <div class="col-xs-9">
     <% if @photo.file.present? %>
-        <%= image_tag(@photo.file_url, :width => "100%", :id => "zoom_03") if @photo.file.present? %>
+        <%= image_tag(@photo.file_url, :width => "100%", :id => "zoom_01") if @photo.file.present? %>
     <% else %>
         <%= image_tag('https://res.cloudinary.com/hbp1mcgsv/image/upload/v1490105597/no-image_g3dnks.jpg', :width => "25%")%>
     <% end %>

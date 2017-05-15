@@ -6,21 +6,39 @@ Radosław Gołuński
 Tomek Cabaj
 
 Galeria zdjeć / Photo Gallery
-Aplikacja umożliwa zalogowanym i zarejestrowanym użytkownikom upload zdjęć(jpg,gif,png do 5mb) i ich opisów.
-Służy jako publiczna galeria. Użytkownicy mają możliwość dodawania/usuwania/edycji własnych zdjęć.
-Dodatkowo użytkownicy zalogowani mają możliwość pisania komentarzy oraz lajkowania zdjęć.
-Admin(login: admin@admin.pl) ma możliwość zarządzania wszystkimi zdjęciami.
 
 | Wersja Ruby   | Wersja Rails  |                Baza danych                 | Framework |           Dodatkowe gemy           |
 | ------------- |:-------------:|:-------------------------------------------|:---------:|:----------------------------------:|
 |      2.4.0    | 5.0.2         | PostgreSQL - Heroku                         | Bootstrap | devise, carrierwave, cloudinary, will_paginate |
 
-Devise - autoryzacja i autentykacja użytkowników
+Opis w punktach:
 
-Carrierwave - upload plików tj. zdjęć na hosting Cloudinary
+1. Galeria zdjęć umożliwa zalogowanym użytkownikom upload zdjęć (jpg,gif,png do 5mb) wraz z krótkim tytułem i opisem
 
-Cloudinary - hosting plikow clodinary.com na potrzeby heroku (współpracuje z Carrierwave)
+2. Użytkownicy niezalogowani mają możliwość dowolnego przeglądania galerii
 
-Will_paginate - gem dzieli komentarze na strony. Po 5 komentarzy na jednej.
+3. Użytkownicy zalogowani mogą dowoli komentować i lajkować (nie swoje) zdjęcia jak i edytować/usuwać własny content
 
-Link do heroku: https://protected-ocean-44249.herokuapp.com
+4. Konto admina kontroluje treści i ma możliwość dowolnej edycji bądź usuwania zdjęć
+
+Opis gemów:
+
+1. Devise - autoryzacja i autentykacja użytkowników
+
+2. Will_paginate - gem dzieli zdjęcia oraz komentarze na stronach tak by wyswietlać tylko kilka na raz
+
+3. Carrierwave - obsługa uploadu plików tj. zdjęć
+
+4. Cloudinary - hosting plikow clodinary.com oraz obróbka zdjęć tj. zmiana rozmaru i wagi plików na potrzeby heroku (gem współpracuje z Carrierwave)
+
+Link do wdrożonej aplikacji na heroku: https://protected-ocean-44249.herokuapp.com
+
+Lighthouse wyniki przed i po optymalizacji:
+
+Przed:
+
+<a href="https://ibb.co/gLJQO5"><img src="https://thumb.ibb.co/gLJQO5/Before.png" alt="Before" border="0"></a> <a href="https://ibb.co/mbUobQ"><img src="https://thumb.ibb.co/mbUobQ/Before_two.png" alt="Before_two" border="0"></a>
+
+Po:
+
+<a href="https://ibb.co/diUAqk"><img src="https://thumb.ibb.co/diUAqk/After.png" alt="After" border="0"></a> <a href="https://ibb.co/jFTgwQ"><img src="https://thumb.ibb.co/jFTgwQ/After_two.png" alt="After_two" border="0"></a> 

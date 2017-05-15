@@ -2,7 +2,13 @@
   "short_name": "Gallery",
   "name": "Photo Gallery",
   "start_url": "/?utm_source=homescreen",
+  "icons": [
+  {
+    "src":"images/icon192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }
   "background_color": "#ffffff",
-  "Theme_color": "#9966cc",
+  "theme_color": "#9966cc",
   "display": "standalone"
 }

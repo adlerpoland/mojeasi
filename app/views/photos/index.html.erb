@@ -1,12 +1,19 @@
 <h1>Explore our gallery</h1>
 
+<script>
+    $("#zoom_05").elevateZoom({
+    zoomType: "inner",
+    cursor: "crosshair"
+    });
+</script>
+
 <% @photos = @photos.paginate(:page => params[:page], :per_page => 6).order('id DESC') %>
     <% @photos.in_groups_of(3) do |group| %>
       <div class="row">
         <% group.compact.each do |photo| %>
           <div class="col-xs-4">
             <% if photo.file.present? %>
-                <%= link_to image_tag(photo.file_url, :width => '100%'), photo%>
+                <%= link_to image_tag(photo.file_url, :width => '100%', :id => "zoom_05", :data-zoom-image="photo.file_url"), photo%>
             <% else %>
                 <%= link_to image_tag('https://res.cloudinary.com/hbp1mcgsv/image/upload/v1490105597/no-image_g3dnks.jpg', :width => '60%'), photo%>
             <% end %>

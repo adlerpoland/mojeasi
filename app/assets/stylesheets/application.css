@@ -24,6 +24,10 @@
      margin-right: 2px;
  }
 
+ .badge{
+     background-color: #383838;
+ }
+
  .btn {
     display: inline-block;
     min-width: 10px;

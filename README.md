@@ -8,7 +8,7 @@ Tomek Cabaj
 
 | Wersja Ruby   | Wersja Rails  |                Baza danych                 | Framework |           Dodatkowe gemy           |
 | ------------- |:-------------:|:-------------------------------------------|:---------:|:----------------------------------:|
-|      2.4.0    | 5.0.2         | PostgreSQL - Heroku                         | Bootstrap | devise, carrierwave, cloudinary, will_paginate |
+|      2.4.0    | 5.0.2         | PostgreSQL - Heroku                         | Bootstrap | devise, carrierwave, cloudinary, will_paginate, elevatezoom |
 
 ### Opis w punktach:
 

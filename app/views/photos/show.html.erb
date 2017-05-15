@@ -1,17 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<script>
-  $("#zoom_03").elevateZoom({
-    zoomType: "lens",
-    scrollZoom: "True",
-    lensColour: "#F0",
-    lensOpacity: 0.5,
-    responsive: "False"
-  });
-</script>
-
 <div class="row">
   <div class="col-xs-9">
+    <script>
+      $("#zoom_03").elevateZoom({
+        scrollZoom: "True",
+        tint: "True",
+        tintColour:"#00", 
+        tintOpacity: 0.5,
+        responsive: "False"
+      });
+    </script>
     <% if @photo.file.present? %>
         <%= image_tag(@photo.file_url, :width => "100%", :id => "zoom_03") if @photo.file.present? %>
     <% else %>
